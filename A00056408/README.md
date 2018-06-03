@@ -21,10 +21,13 @@ Imagen:
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuImagen.png)  
 
 Adaptador de red:  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Images/ubuntuAdaptor.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuAdaptor.png)  
 
 Procesadores utilizados:  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuprocesadores.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuProcesadores.png)  
+
+Configuración NAT:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuRed1.png)
 
 # Instalación de LXC/LXD  
 
