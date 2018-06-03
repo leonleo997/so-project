@@ -28,9 +28,11 @@ Procesadores utilizados:
 
 # Instalación de LXC/LXD  
 
-Para instalarlo le damos permisos al usuario operativos. Para esto escribimos en consola ``$ vim /etc/sudoers``
+Para instalarlo le damos permisos al usuario operativos. Para esto escribimos en consola ``$ vim /etc/sudoers``. Aquí se le daremos a `operativos` permisos sudo.  
+
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/sudoers.png)
 
 
 
 
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/)
