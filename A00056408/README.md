@@ -8,3 +8,4 @@
 ## Objetivo General  
 
 Realizar el despliegue de dos servidores web y un balanceador de carga por medio de contenedores LXC/LXD. 
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/objetivos.png)
