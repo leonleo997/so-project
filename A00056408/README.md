@@ -2,10 +2,33 @@
 **Nombre:** Yesid Leonardo López  
 **Código:** A00056408  
 
-
-# Desarrollo parcial  
-
-## Objetivo General  
+# Objetivo General  
 
 Realizar el despliegue de dos servidores web y un balanceador de carga por medio de contenedores LXC/LXD. 
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/objetivos.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/objetivos.png)  
+
+# Aprovisionamiento de la máquina virtual  
+
+Se usará como sistema operativo Ubunto en su versión de [16.04.1](http://releases.ubuntu.com/16.04/). El aprovisionamiento se ve en las siguientes imagenes:  
+
+Especificaciones generales:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/ubuntuGeneral.png)  
+
+Placa base:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/ubuntuPlaca.png)  
+
+Imagen:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/ubuntuImagen.png)  
+
+Adaptador de red:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/ubuntuAdaptador.png)  
+
+Procesadores utilizados:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/ubuntuprocesadores.png)
+
+
+
+
+
+
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/)
