@@ -135,6 +135,37 @@ Las siguientes imagenes hacen referencia a las configuraciones del nombre del pu
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_014.png)
 ------------------------------------------------------------------------
 
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_015.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_017.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_018.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_019.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_020.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_021.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_022.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_024.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_025.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_026.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_027.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_028.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_029.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_030.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_031.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_033.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_035.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_036.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_037.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_038.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_039.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_040.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_041.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_042.png)
+
+
+
+
+
+
+
 ```console
 operativos@Ubuntu:~$ newgrp lxd
 ```
