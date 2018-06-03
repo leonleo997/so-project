@@ -42,31 +42,31 @@ Adaptador de red:
 
 ## Instalación de LXD  
 
-Para instalarlo le damos permisos al usuario operativos. Para esto escribimos en consola ``$ vim /etc/sudoers``. Aquí se le daremos a `operativos` permisos sudo.  
+Para poder instalar lxd le damos permisos al usuario operativos que creamos anteriormente . Para realizar esto escribimos en consola ``$ vim /etc/sudoers``. Aquí con el comando le daremos a `operativos` permisos de instalacion de tipo sudo.  
 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/sudoers.png)
 
-Ahora, instalaremos LXD. Para esto escribimos en consola el siguiente comando:  
+Ahora, procedemor a la instalación de LXD. Para esto escribimos en consola el siguiente comando:  
 ```console
 operativos@Ubuntu:~$ sudo apt-get install LXD 
 ```
 
-LXD ya está instalado en Ubuntu por defecto, sin embargo, necesitamos configurar el usuario operativos para administrar contenedores, después configuramos el tipo de almacenamiento para guardar los contenedores y configurar la red.  
+Debido a que LXD ya se encuentra instalado en Ubuntu por defecto, necesitamos asegurarnos de que se encuentre instalado con las versiones más recientes, ya que necesitamos configurar el usuario operativos para administrar contenedores, y después configuramos el tipo de almacenamiento para guardar los contenedores y configurar la red.  
 
-Instalamos lxd con el siguiente comando: 
+Procedemos a Instalar lxd con el siguiente comando: 
 
 ```console
 operativos@Ubuntu:~$ sudo apt-install lxd
 ```
 
-Adicionamos el usuario al grupo lxd, de esta manera podremos usar el usuario operativos para realizar todas las tareas de administración de contenedor.  
+Luego adicionamos el usuario al grupo lxd, esta adición es necesaria para que podamos usar el usuario operativos para realizar todas las tareas de administración de los contenedores. Para hacer esta acción utilizamos el siguiente comando:  
 
 
 ```console
 operativos@Ubuntu:~$ sudo adduser operativos lxd
 ```
 
-El nuevo grupo será efectiva en la siguiente sesión, por lo tanto, para aplicar los cambios en la shell actual ejecutamos: 
+Debido a que el nuevo grupo será efectiva en la siguiente sesión, por lo tanto, para aplicar los cambios en la shell actual ejecutamos el comando: 
 
 ```console
 operativos@Ubuntu:~$ newgrp lxd
@@ -79,6 +79,7 @@ Un storage pool es generalmente creado para tener una capacidad grande de GBs/TB
 
 Por ejemplo, podemos combinar 10 Hard Disk Drives de 3TB cada uno, teniendo un total de 30TBs.
 
+
 ## ZSF  
 
 Es un sistema de archivo combinado y un administrador de volumen lógico diseñado por Sun Microsystem. Este es descrito por los analistas como "el único sistema de archivo empresarial de validación de datos Open Source". El ZSF es escalable e incluye protección extensiva contra la corrupción de datos, soporta altas capacidades de almacenamiento, compresión de daros eficientes, integración de conceptos de filesystem y administración de volumen, snapshots y clones copy-on-write.
@@ -86,12 +87,18 @@ Este sistema de archivos cuenta con un gran número de medidas de protección de
 
 ## Ventajas ZSF  
 
-* Ofrece integridad de los datos comprobable, de forma que todos los datos en disco sean correctos al usar un modelo transaccional para realizar las escrituras.  
-* El sistema es autorreparable: de forma que si se detecta que una parte de un fichero se ha corrompido se busca en otro disco y si esta es buena se sobreescribe la que era incorrecta de forma que ahora ambas serán buenas.  
+* Ofrece integridad de los datos comprobable, de forma que todos los datos en disco sean correctos al usar un modelo transaccional para realizar las escrituras.   
 * El modelo transaccional viene dado por el uso de copy-on-write, una técnica con la que no se sobreescriben los datos en el disco cuando se modifican, sino que se crean nuevos bloques donde se graban y posteriormente se modifican las estructuras para que apunten a estos bloques nuevos.  
 * Esto permite, además, la existencia de snapshots y clones. Los snapshots son copias del sistema de ficheros en un determinado momento. Son solo de lectura, pero su creación es muy rápida, lo que permite hacer copias de seguridad de forma casi inmmediata. Los clones son snapshots en los que se puede escribir, de forma que se crean dos sistemas de ficheros que comparten bloques en el disco, ahorrando espacio.  
 * la creación de un sistema de ficheros es una operación muy ligera. Esto, junto al hecho de que no existen cuotas de espacio por usuario sino por sistema de ficheros propicia que se creen sistemas de ficheros para cada usuario en lugar de directorios dentro de un mismo sistema de ficheros. También ayuda a esto el que la gestión de los sistemas de ficheros sea mucho más sencilla que con otros sistemas existentes.  
-* ofrece compresión transparente al usuario, lo que maximiza el espacio disponible en disco y, muchas veces, la velocidad de lectura y que, por ahora, no ofrece cifrado transparente de datos, aunque desde Sun están trabajando en ello.  
+* ofrece compresión transparente al usuario, lo que maximiza el espacio disponible en disco y, muchas veces, la velocidad de lectura y que, por ahora, no ofrece cifrado transparente de datos, aunque desde Sun están trabajando en ello.
+* El sistema de archivos cuenta con gran cantidad de medidas de protección de datos con sistemas de integridad contra la pérdida y corrupción de los archivos.
+* Está optimizado para el uso de almacenamiento de disco que utiliza la tecnología RAID, lo cual es importante porque se proyecta que con muchas unidades de almacenamiento se construyan grandes volúmenes de información.
+* Actualmente hay dificultad de hacer “borrón y cuenta nueva” en los servidores, por lo que con los ficheros a una velocidad mayor no es necesario hacer ese cambio cuando se sature el rendimiento del sistema.
+* Todo el espacio de almacenamiento se comparte entre los diferentes sistemas de ficheros.
+* El sistema es autorreparable, ya que si se detecta que una parte de un fichero ha sido corrompida se busca en otro disco y se sobreescribe la que está incorrecta con el objetivo de corregir el archivo corrupto.
+
+
 
 Instalamos la ZFS con el siguiente comando: 
 
@@ -105,12 +112,27 @@ Para realizar la configuración inicial de lxd usamos el siguiente comando:
 ```console
 operativos@Ubuntu:~$ sudo lxd init
 ```
-Damos enter para dejar los datos por defecto como se ve en la siguiente:  
+
+Luego nos aparece un mensaje que nos dice si buscamos configurar un nuevo pool de conexiones, la imagen es la siguiente:
+
+
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_005.png)
+
+Escribimos en consola respondiendo yes o No segun los parametos por defecto, para no modificar los valores asignados por defecto simplemente damos Enter y estos resultados se evidencian en la siguiente imagen:  
 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/default.png)
 
-En la imagen anterior, se configura primero un nuevo storage pool. 
+En la imagen anterior, se empieza la configuración de un nuevo storage pool. 
 
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_005.png)
+
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_007.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_008.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_009.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_010.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_012.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_013.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_014.png)
 ------------------------------------------------------------------------
 
 ```console
@@ -130,4 +152,5 @@ operativos@Ubuntu:~$
 * ZFS: https://en.wikipedia.org/wiki/ZFS
 * ZFS: https://www.redeszone.net/2016/10/01/zfs-las-caracteristicas-este-sistema-archivos-avanzado/
 * Ventajas ZFS: https://www.genbeta.com/mac/zfs-un-repaso-al-sistema-de-ficheros
-* 
+* ZFS en Ubuntu:https://bayton.org/docs/linux/lxd/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/
+* Caracteristicas de ZFS: https://www.genbeta.com/mac/zfs-un-repaso-al-sistema-de-ficheros
