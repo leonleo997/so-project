@@ -135,16 +135,51 @@ Las siguientes imagenes hacen referencia a las configuraciones del nombre del pu
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_014.png)
 ------------------------------------------------------------------------
 
+*Creación de contenedores*
+Luego de que el pool ha sido configurado satisfactoriamente saldrá la siguiente imagen
+
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_015.png)
+
+Luego procedemos a crear un contenedor de ubuntu con el nombre webserver y lo iniciamos tambien con el siguiente comando
+```console
+lxc launch ubuntu:x webserver
+```
+La salida resultante de ese comando se evidencia acontinuación con el inicio y la creación del webserver: 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_017.png)
+
+Utilizamos el comando ``lxc list `` para mirar que el webserver esta corriendo 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_018.png)
+
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_019.png)
+
+Luego procedemos a crear otro contenedor de ubuntu con el nombre webserver2 y lo iniciamos tambien con el siguiente comando
+```console
+lxc launch ubuntu:x webserver2
+```
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_020.png)
+Utilizamos de nuevo el comando ``lxc list `` para mirar que el webserver2  esta corriendo perfectamente y ejecutamos la lista para mirarlo en funcionamiento 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_021.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_022.png)
+
+Luego procedemos a entrar a la carpeta bash donde estan los webservers
+```console
+lxc exec webserver2 --/bin/bash
+```
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_024.png)
+y luego procedemos a configurar el web server con el siguiente comando
+```console
+lxc config set webserver limits.cpu 1
+lxc config set webserver2 limits.cpu 1
+```
+
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_025.png)
+Luego procedemos a crear y e iniciar el balanceador de carga que fue llamado `loadbalancer` con el siguiente comando 
+```console
+lxc launch ubuntu:16.04 loadbalancer
+```
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_026.png)
+
+La siguiente imagen muestra el correcto funcionamiento del balanceador de carga y los 2 webservers que habíamos creado antes.
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_027.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_028.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_029.png)
