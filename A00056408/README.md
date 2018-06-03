@@ -124,7 +124,7 @@ Escribimos en consola respondiendo yes o No segun los parametos por defecto, par
 
 En la imagen anterior, se empieza la configuración de un nuevo storage pool. 
 
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_005.png)
+Las siguientes imagenes hacen referencia a las configuraciones del nombre del puente, la IPv4, la mascara de red, direccion DHCP, el trafico de NAT. Obviamos la configuracion de red IPv6 dando clic en No como se evidencian en las siguientes imagenes:
 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_007.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_008.png)
