@@ -1,7 +1,12 @@
 # Proyecto   
-**Nombre:** Yesid Leonardo López  
-**Código:** A00056408  
+**Nombres:**  
+Yesid Leonardo López  
+Víctor Andrés Calambas Hurtado  
+**Código:**  
+A00056408  
+A00059956  
 **URL Repositorio:** 
+
 # Objetivo General  
 
 Realizar el despliegue de dos servidores web y un balanceador de carga por medio de contenedores LXC/LXD. 
@@ -9,25 +14,29 @@ Realizar el despliegue de dos servidores web y un balanceador de carga por medio
 
 # Aprovisionamiento de la máquina virtual  
 
-Se usará como sistema operativo Ubunto en su versión de [16.04.1](http://releases.ubuntu.com/16.04/). El aprovisionamiento se ve en las siguientes imagenes:  
+Se usará como sistema operativo Ubunto en su versión de [16.04.1](http://releases.ubuntu.com/16.04/). Para ello en las especificaciones generales, en la pestaña de General le asignamos un nombre a la maquina virtual, en nuestro caso fue llamada ubuntu que es el nombre de Sistema Operativo que vamos a instalar, luego seleccionamos el tipo de sistema que es basado en una distribución de Linux, y por ultimo seleccionamos la version de Ubuntu de (64 bit)La vista inicial con la configuración mencionada se puede ver en la siguiente imagen:  
 
 Especificaciones generales:  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuGeneral.png)  
-
+Luego para tener un gran desempeño en la maquina virtual que hemos instalado en uno de los computadores de la universidad, le asignamos una cantidad de RAM un poco superior a las 8 GB de memoria ya que estos computadores tienen alrededor de 21 GB el rendimiento no se va a ver afectado.
 Placa base:  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuPlaca.png)  
+Luego le asignamos a la maquina virtual la cantidad de procesadores que van a funcionar con nuestra maquina, utilizamos la cantidad necesaria para realizar la ejecucion del proyecto, las cuales fueron asignadas a la maquina 4 procesadores y el limite de ejecucion quedo al 100% para que el rendimiento de los procesadores de la maquina sean exclusivamente para el proyecto 
+Procesadores utilizados:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuProcesadores.png)  
+Luego procedemos a asignar un tamaño de disco duro virtual de 30GB que es una configuración por defecto que nos recomienda
 
 Imagen:  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuImagen.png)  
 
+La configuración de la pestaña de Red del adaptador 1 es la conexion mediane NAT
+Configuración NAT:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuRed1.png)
+
+Luego en la pestaña de Red seleccionamos la configuración de adaptador de tipo puente como se puede evidenciar en la siguiente imagen.
 Adaptador de red:  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuAdaptor.png)  
 
-Procesadores utilizados:  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuProcesadores.png)  
-
-Configuración NAT:  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/ubuntuRed1.png)
 
 # Instalación de LXD  
 
