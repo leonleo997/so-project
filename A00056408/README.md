@@ -1,7 +1,7 @@
 # Proyecto   
 **Nombre:** Yesid Leonardo López  
 **Código:** A00056408  
-
+**URL Repositorio:** 
 # Objetivo General  
 
 Realizar el despliegue de dos servidores web y un balanceador de carga por medio de contenedores LXC/LXD. 
@@ -35,7 +35,46 @@ Para instalarlo le damos permisos al usuario operativos. Para esto escribimos en
 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/sudoers.png)
 
+Ahora, instalaremos LXD. Para esto escribimos en consola el siguiente comando:  
+```console
+operativos@Ubuntu:~$ sudo apt-get install LXD 
+```
+
+LXD ya está instalado en Ubuntu por defecto, sin embargo, necesitamos configurar el usuario operativos para administrar contenedores, después configuramos el tipo de almacenamiento para guardar los contenedores y configurar la red.  
+
+Instalamos lxd con el siguiente comando: 
+
+```console
+operativos@Ubuntu:~$ sudo apt-install lxd
+```
+
+Adicionamos el usuario al grupo lxd, de esta manera podremos usar el usuario operativos para realizar todas las tareas de administración de contenedor.  
 
 
+```console
+operativos@Ubuntu:~$ sudo adduser operativos lxd
+```
+
+El nuevo grupo será efectiva en la siguiente sesión, por lo tanto, para aplicar los cambios en la shell actual ejecutamos: 
+
+```console
+operativos@Ubuntu:~$ newgrp lxd
+```  
+
+
+------------------------------------------------------------------------
+
+```console
+operativos@Ubuntu:~$ newgrp lxd
+```
 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/)
+
+```console
+operativos@Ubuntu:~$ 
+```
+
+
+# Bibliografía  
+* Instalación y configuración de lxd: https://tutorials.ubuntu.com/tutorial/tutorial-setting-up-lxd-1604#1  
+* 
