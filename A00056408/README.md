@@ -135,63 +135,84 @@ Las siguientes imagenes hacen referencia a las configuraciones del nombre del pu
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_014.png)
 ------------------------------------------------------------------------
 
-*Creación de contenedores*
-Luego de que el pool ha sido configurado satisfactoriamente saldrá la siguiente imagen
+*Creación de contenedores*  
+Luego de que el pool ha sido configurado satisfactoriamente saldrá la siguiente imagen  
 
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_015.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_015.png)  
 
-Luego procedemos a crear un contenedor de ubuntu con el nombre webserver y lo iniciamos tambien con el siguiente comando
+Luego procedemos a crear un contenedor de ubuntu con el nombre webserver y lo iniciamos tambien con el siguiente comando  
 ```console
 lxc launch ubuntu:x webserver
-```
-La salida resultante de ese comando se evidencia acontinuación con el inicio y la creación del webserver: 
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_017.png)
+```  
+La salida resultante de ese comando se evidencia acontinuación con el inicio y la creación del webserver:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_017.png)  
 
-Utilizamos el comando ``lxc list `` para mirar que el webserver esta corriendo 
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_018.png)
+Utilizamos el comando ``lxc list `` para mirar que el webserver esta corriendo  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_018.png)  
 
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_019.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_019.png)  
 
-Luego procedemos a crear otro contenedor de ubuntu con el nombre webserver2 y lo iniciamos tambien con el siguiente comando
+Luego procedemos a crear otro contenedor de ubuntu con el nombre webserver2 y lo iniciamos tambien con el siguiente comando  
 ```console
 lxc launch ubuntu:x webserver2
 ```
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_020.png)
-Utilizamos de nuevo el comando ``lxc list `` para mirar que el webserver2  esta corriendo perfectamente y ejecutamos la lista para mirarlo en funcionamiento 
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_021.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_022.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_020.png)  
+Utilizamos de nuevo el comando ``lxc list `` para mirar que el webserver2  esta corriendo perfectamente y ejecutamos la lista para mirarlo en funcionamiento  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_021.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_022.png)  
 
-Luego procedemos a entrar a la carpeta bash donde estan los webservers
+Luego procedemos a entrar a la carpeta bash donde estan los webservers  
 ```console
 lxc exec webserver2 --/bin/bash
 ```
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_024.png)
-y luego procedemos a configurar el web server con el siguiente comando
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_024.png)  
+y luego procedemos a configurar el web server con el siguiente comando  
 ```console
 lxc config set webserver limits.cpu 1
 lxc config set webserver2 limits.cpu 1
 ```
 
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_025.png)
-Luego procedemos a crear y e iniciar el balanceador de carga que fue llamado `loadbalancer` con el siguiente comando 
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_025.png)  
+Luego procedemos a crear y e iniciar el balanceador de carga que fue llamado `loadbalancer` con el siguiente comando  
 ```console
 lxc launch ubuntu:16.04 loadbalancer
 ```
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_026.png)
 
 La siguiente imagen muestra el correcto funcionamiento del balanceador de carga y los 2 webservers que habíamos creado antes.
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_027.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_028.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_029.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_030.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_031.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_033.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_035.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_036.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_037.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_038.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_039.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_040.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_027.png)  
+La siguiente imagen muestra el funcioanmiento de el balanceador de carga
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_028.png)  
+
+Luego editamos la pagina que viene con la configuración por defecto de los webservers como se ven en las siguientes dos imagenes:  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_029.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_030.png)  
+
+Luego procedemos a realizar la configuración como se había realizado anteriormente asignandole un procesador a cada ejecución con el comando anterior :  
+```console
+lxc config set webserver limits.cpu 1
+lxc config set webserver2 limits.cpu 1
+``` 
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_031.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_033.png)  
+
+Y procedemos a reinicirar el servicio con el comando restart que vemos acontinuación:  
+```console
+sudo service nginx restart
+``` 
+Luego de que se haya creado el balanceador de carga y de haber realizado las configuraciones mostradas previamente en imagenes realizamos la configuración `Ngix`, previamente habiamos configurado los webservers para los cuales va a funcionar el balanceador. Procedimos a realizar la configuración para recibir conexiones remotas y con el siguiente comando aseguramos de que el servicio del grupo que creamos al inicio quede activo de la forma correcta, el comando utilizado es:  
+
+```console
+systemctl list-unit-files --state=enabled | grep lxd
+```
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_035.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_036.png)  
+Las siguientes imagenes muestra a los contenedores y el balanceador de cargas funcionando en perfecto estado, y el registro del balanceador de cargas en funcionamiento
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_037.png)  
+La siguiente imagen muestra la configuración realizada -sf-sd-f-sd-fsd-f-s-f-sdf
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_038.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_039.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_040.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_041.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_042.png)
 
