@@ -143,7 +143,7 @@ Luego de que el pool ha sido configurado satisfactoriamente saldrá la siguiente
 
 Luego procedemos a crear un contenedor de ubuntu con el nombre webserver y lo iniciamos tambien con el siguiente comando  
 ```console
-lxc launch ubuntu:x webserver
+lxc launch ubuntu:16.04 webserver
 ```  
 La salida resultante de ese comando se evidencia acontinuación con el inicio y la creación del webserver:  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_017.png)  
@@ -155,10 +155,10 @@ Utilizamos el comando ``lxc list `` para mirar que el webserver esta corriendo
 
 Luego procedemos a crear otro contenedor de ubuntu con el nombre webserver2 y lo iniciamos tambien con el siguiente comando  
 ```console
-lxc launch ubuntu:x webserver2
+lxc launch ubuntu:16.04 webserver2
 ```
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_020.png)  
-Utilizamos de nuevo el comando ``lxc list `` para mirar que el webserver2  esta corriendo perfectamente y ejecutamos la lista para mirarlo en funcionamiento  
+Utilizamos de nuevo el comando ``lxc list `` para mirar que el webserver2  esta corriendo perfectamente y ejecutamos el comando para mirarlo en funcionamiento  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_021.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_022.png)  
 
