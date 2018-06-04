@@ -209,8 +209,8 @@ systemctl list-unit-files --state=enabled | grep lxd
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_036.png)  
 Las siguientes imagenes muestra a los contenedores y el balanceador de cargas funcionando en perfecto estado, y el registro del balanceador de cargas en funcionamiento
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_037.png)  
-La siguiente imagen muestra la configuración realizada -sf-sd-f-sd-fsd-f-s-f-sdf
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_038.png)  
+Las siguientes imagenes muestran el uso del comando ``curl`` a las IPs que hacen referencia a la configuración realizada de los dos webservers y a la IP que hace referencia a el balanceador de carga
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_039.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_040.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_041.png)
@@ -218,19 +218,6 @@ La siguiente imagen muestra la configuración realizada -sf-sd-f-sd-fsd-f-s-f-sd
 
 
 
-
-
-
-
-```console
-operativos@Ubuntu:~$ newgrp lxd
-```
-
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/)
-
-```console
-operativos@Ubuntu:~$ 
-```
 
 
 # Bibliografía  
