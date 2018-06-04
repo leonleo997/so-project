@@ -1,4 +1,4 @@
-# Proyecto   
+# Proyecto Final Sistemas Operativos
 **Nombres:**  
 Yesid Leonardo López  
 Víctor Andrés Calambas Hurtado  
@@ -6,6 +6,7 @@ Víctor Andrés Calambas Hurtado
 A00056408  
 A00059956  
 **URL Repositorio:** 
+https://github.com/leonleo997/so-project.git
 
 # Objetivo General  
 
@@ -215,7 +216,6 @@ Las siguientes imagenes muestran el uso del comando ``curl`` a las IPs que hacen
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_040.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_041.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_042.png)
-
 
 
 
