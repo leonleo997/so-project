@@ -323,7 +323,7 @@ sudo iptables -t nat -I PREROUTING -i enp0s8 -p TCP -d $PUBLIC_IP --dport $PORT 
 comment --comment "forward to the Nginx container" 
 ```  
 Al ingresar al navegador con la ip pública: 192.168.0.35 se mostrará el archivo html del servidor web 1.
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_024.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_024.png)  
 
 Al recargar veremos el mensaje del servidor web 2
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_025.png)
