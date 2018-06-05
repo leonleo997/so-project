@@ -247,6 +247,7 @@ La siguiente imagen muestra el correcto funcionamiento del balanceador de carga 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_027.png)  
 
 # Pruebas del funcionamiento del balanceador
+ ### Pruebas haciendo uso del comando curl con la respuesta de cada uno de los servicios web a través del balanceador
 
 Las siguientes imagenes muestra a los contenedores y el balanceador de cargas funcionando en perfecto estado, y el registro del balanceador de cargas en funcionamiento
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_037.png)  
@@ -258,7 +259,20 @@ Las siguientes imagenes muestran el uso del comando ``curl`` a las IPs que hacen
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_041.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_042.png)
 
+### Pruebas por medio de una herramienta de test de stress (siege)
 
+Debido a unos problemas en la exportación  de la maquina virtual las siguientes pruebas fueron realizadas con una IP diferente debido a que los pasos que habíamos realizado anteriormente, nos toco volverlos a realizar en una nueva maquina virtual. 
+
+
+
+
+
+Servidores web con 64Mb, 128Mb
+Servidores web con 50%CPU, 100%CPU
+
+
+
+El siguiente comando realiza una prueba de estres en la cual simula el comportamiento de 200 usuarios en un lapso de tiempo de 20 segundos, la dirección IP a la cual se somete a prueba hace referencia a la nueva IP que fue asignada al nuevo balanceador de carga
 
 
 # Bibliografía  
@@ -269,3 +283,4 @@ Las siguientes imagenes muestran el uso del comando ``curl`` a las IPs que hacen
 * Ventajas ZFS: https://www.genbeta.com/mac/zfs-un-repaso-al-sistema-de-ficheros
 * ZFS en Ubuntu:https://bayton.org/docs/linux/lxd/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/
 * Caracteristicas de ZFS: https://www.genbeta.com/mac/zfs-un-repaso-al-sistema-de-ficheros
+* How to use siege in linux: https://www.linode.com/docs/tools-reference/tools/load-testing-with-siege/
