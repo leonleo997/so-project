@@ -131,21 +131,24 @@ Las siguientes imagenes hacen referencia a las configuraciones del nombre del pu
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_008.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_009.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_010.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_012.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_001.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_002.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_003.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_013.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_014.png)  
 
+
+Luego de que el pool ha sido configurado satisfactoriamente saldrá la siguiente imagen  
+
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_015.png) 
+
+
+
 # Creación de contenedores con servicio web
 
 ## Instalación y configuración del servicio web  
 
-
-Luego de que el pool ha sido configurado satisfactoriamente saldrá la siguiente imagen  
-
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_015.png)  
+ 
 
 Luego procedemos a crear un contenedor de ubuntu con el nombre webserver y lo iniciamos tambien con el siguiente comando  
 ```console
@@ -155,7 +158,7 @@ La salida resultante de ese comando se evidencia acontinuación con el inicio y 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_017.png)  
 
 Utilizamos el comando ``lxc list `` para mirar que el webserver esta corriendo  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_018.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_005.png)  
 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_019.png)  
 
@@ -165,7 +168,7 @@ lxc launch ubuntu:16.04 webserver2
 ```
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_020.png)  
 Utilizamos de nuevo el comando ``lxc list `` para mirar que el webserver2  esta corriendo perfectamente y ejecutamos el comando para mirarlo en funcionamiento  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_021.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_006.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_022.png)  
 
 Luego procedemos a entrar a la carpeta bash donde estan los webservers  
@@ -213,15 +216,19 @@ Procedemos a crear y e iniciar el balanceador de carga que fue llamado `loadbala
 ```console
 lxc launch ubuntu:16.04 loadbalancer
 ```
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_026.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_007.png)
+
+Procedemos a configurar el servicio del nginx del balanceador de carga como se ve en la siguiente imagen:  
+
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_041.png)  
 
 
-La siguiente imagen muestra el funcioanmiento de el balanceador de carga
+La siguiente imagen muestra el funcionamiento de el balanceador de carga
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_028.png)  
 
 Luego editamos la pagina que viene con la configuración por defecto de los webservers como se ven en las siguientes dos imagenes:  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_029.png)  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_030.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_011.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_012.png)  
 
 Luego procedemos a realizar la configuración como se había realizado anteriormente asignandole un procesador a cada ejecución con el comando anterior :  
 ```console
@@ -240,13 +247,23 @@ Luego de que se haya creado el balanceador de carga y de haber realizado las con
 ```console
 systemctl list-unit-files --state=enabled | grep lxd
 ```
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_035.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_008.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_036.png)  
+
+La siguiente imagne muestra la configuración de la IPs de los servidores con los que va a funcionar el balanceador de cargas
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_013.png)  
+
+
+La siguiente imagen muestra el resultado del comando que veremos a continuación:  
+```console
+systemctl | grep lxd
+```
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_016.png)  
 
 # Salida del comando lxc list con los contenedores creados y sus direcciones Ip  
 
 La siguiente imagen muestra el correcto funcionamiento del balanceador de carga y los 2 webservers que habíamos creado antes.  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_027.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_009.png)  
 
 # Pruebas del funcionamiento del balanceador
  ### Pruebas haciendo uso del comando curl con la respuesta de cada uno de los servicios web a través del balanceador
@@ -256,10 +273,9 @@ Las siguientes imagenes muestra a los contenedores y el balanceador de cargas fu
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_038.png)  
 
 Las siguientes imagenes muestran el uso del comando ``curl`` a las IPs que hacen referencia a la configuración realizada de los dos webservers y a la IP que hace referencia a el balanceador de carga
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_039.png)  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_040.png)  
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_041.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_042.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_017.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_018.png)  
+
 
 ### Pruebas por medio de una herramienta de test de stress (siege)
 
