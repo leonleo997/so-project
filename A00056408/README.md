@@ -322,7 +322,8 @@ Con el comando anterior hemos hecho el puente de conexion de la ip publica de nu
 
 ```console
 sudo iptables -t nat -I PREROUTING -i enp0s8 -p TCP -d $PUBLIC_IP --dport $PORT -j DNAT --to-destination $CONTAINER_IP:$PORT -m     
-comment --comment "forward to the Nginx container"``` 
+comment --comment "forward to the Nginx container" 
+``` 
 
 
 
