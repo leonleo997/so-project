@@ -291,36 +291,47 @@ Las siguientes imagenes muestran el uso del comando ``curl`` a las IPs que hacen
 
 
 ### Pruebas por medio de una herramienta de test de stress (siege)
+Instalamos 'apt-get install apache2-utils' para correr las pruebas de estres. 
 
-Debido a unos problemas en la exportación  de la maquina virtual las siguientes pruebas fueron realizadas con una IP diferente debido a que los pasos que habíamos realizado anteriormente, nos toco volverlos a realizar en una nueva maquina virtual. 
-
-
-La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb  
-imagen 64Mb  
-
-La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb  
-imagen 128Mb  
-
-La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb  
-imagen 50% CPU  
-
-La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb  
-imagen 100% CPU  
-
-
-
-El siguiente comando realiza una prueba de estres en la cual simula el comportamiento de 200 usuarios en un lapso de tiempo de 20 segundos, la dirección IP a la cual se somete a prueba hace referencia a la nueva IP que fue asignada al nuevo balanceador de carga  
+El siguiente comando realiza una prueba de estres en la cual simula el comportamiento de 1000 usuarios en 10 lapsos de tiempo ejecutandose de a 100 peticiones concurrentes, la dirección IP a la cual se somete a prueba hace referencia a la nueva IP que fue asignada al nuevo balanceador de carga  
 
 ```console
-siege -c 200 -t 20 http://10.45.80.209
+ab -n 1000 -c 100 http://10.45.80.209/
 ```  
+
+
+La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb y un uso del 50% de la CPU  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_020.png)  
+La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb y un uso del 100% de la CPU  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_021.png)  
+La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 128 Mb y un uso del 100% de la CPU  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_022.png)  
+La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 128 Mb y un uso del 50% de la CPU  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_023.png)  
+
+
+
+# Configure el reenvio de puertos en la máquina virtual para permitir el acceso desde el sistema anfitrión hacia del contenedor con el servicio para balanceo de carga
+Debido a que nginx lo tenemos instalado en los contenedores locales, no son accesibles desde intenert. Por ello, para para permitir la coexion a internet vamos a utilizar el puerto 80 como el puerto en el que se va a concectar el servidor. Para esto, debemos permitirle las peticiones a nuestro loadbalancer y lo realizamos con el comando acontinuación:
+
+```console
+PORT=80 PUBLIC_IP=192.168.0.35 CONTAINER_IP=10.45.80.209
+```  
+
+Con el comando anterior hemos hecho el puente de conexion de la ip publica de nuestro ordenador con la ip de nuestro balanceador de carga, ya con esta configuracion podemos utilizar el comando iptables que vemos a continuación:  
+
+```console
+sudo iptables -t nat -I PREROUTING -i enp0s8 -p TCP -d $PUBLIC_IP --dport $PORT -j DNAT --to-destination $CONTAINER_IP:$PORT -m     
+comment --comment "forward to the Nginx container"``` 
+
+
 
 
 ## Pregunta Random
 
 # Al reiniciar la máquina virtual en que estado quedan los contenedores?
 
-Cuando se reinicia una maquina virtual, el estado de los contenedores es el mismo, debido a que para cambiar el estado de los contenedores es necesario utilizar comandos como 'stop' para pararlos o 'start' para que sigan corriendo normalmente. Los comandos de los contenedores en su mayoria es 'lxc comando nombreDelContenedor' los comandos para cambiar de estado a los contenedores se encuentran en la referencia con titulo commands to containers in linux.
+Cuando se reinicia una maquina virtual, el estado de los contenedores es el mismo, debido a que para cambiar el estado de los contenedores es necesario utilizar comandos como 'stop' para pararlos o 'start' para que sigan corriendo normalmente. Los comandos de los contenedores en su mayoria es 'lxc comando nombreDelContenedor' los comandos para cambiar de estado a los contenedores se encuentran en la referencia con titulo "commands to containers in linux".
 
 
 # Bibliografía  
@@ -332,4 +343,5 @@ Cuando se reinicia una maquina virtual, el estado de los contenedores es el mism
 * ZFS en Ubuntu:https://bayton.org/docs/linux/lxd/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/  
 * Caracteristicas de ZFS: https://www.genbeta.com/mac/zfs-un-repaso-al-sistema-de-ficheros  
 * How to use siege in linux: https://www.linode.com/docs/tools-reference/tools/load-testing-with-siege/
-* Commands to containers in linux : https://linuxcontainers.org/lxd/getting-started-cli/ 
+* Commands to containers in linux: https://linuxcontainers.org/lxd/getting-started-cli/ 
+* An Introduction to Load Testing: https://www.digitalocean.com/community/tutorials/an-introduction-to-load-testing
