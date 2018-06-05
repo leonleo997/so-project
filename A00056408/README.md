@@ -326,7 +326,7 @@ Al ingresar al navegador con la ip pública: 192.168.0.35 se mostrará el archiv
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_024.png)  
 
 Al recargar veremos el mensaje del servidor web 2
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_025.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_025.png)
 
 
 ## Pregunta Random
