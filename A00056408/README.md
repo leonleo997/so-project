@@ -132,9 +132,11 @@ Las siguientes imagenes hacen referencia a las configuraciones del nombre del pu
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_009.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_010.png)
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_012.png)
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_001.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_002.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_003.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_013.png)
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_014.png)
-------------------------------------------------------------------------
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_014.png)  
 
 # Creación de contenedores con servicio web
 
@@ -264,23 +266,41 @@ Las siguientes imagenes muestran el uso del comando ``curl`` a las IPs que hacen
 Debido a unos problemas en la exportación  de la maquina virtual las siguientes pruebas fueron realizadas con una IP diferente debido a que los pasos que habíamos realizado anteriormente, nos toco volverlos a realizar en una nueva maquina virtual. 
 
 
+La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb  
+imagen 64Mb  
+
+La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb  
+imagen 128Mb  
+
+La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb  
+imagen 50% CPU  
+
+La siguiente imagen muestra el desempeño del sistema con la configuración del servidor web con 64 Mb  
+imagen 100% CPU  
 
 
 
-Servidores web con 64Mb, 128Mb
-Servidores web con 50%CPU, 100%CPU
+El siguiente comando realiza una prueba de estres en la cual simula el comportamiento de 200 usuarios en un lapso de tiempo de 20 segundos, la dirección IP a la cual se somete a prueba hace referencia a la nueva IP que fue asignada al nuevo balanceador de carga  
+
+```console
+siege -c 200 -t 20 http://10.45.80.209
+```  
 
 
+## Pregunta Random
 
-El siguiente comando realiza una prueba de estres en la cual simula el comportamiento de 200 usuarios en un lapso de tiempo de 20 segundos, la dirección IP a la cual se somete a prueba hace referencia a la nueva IP que fue asignada al nuevo balanceador de carga
+# Al reiniciar la máquina virtual en que estado quedan los contenedores?
+
+Cuando se reinicia una maquina virtual, el estado de los contenedores es el mismo, debido a que para cambiar el estado de los contenedores es necesario utilizar comandos como 'stop' para pararlos o 'start' para que sigan corriendo normalmente. Los comandos de los contenedores en su mayoria es 'lxc comando nombreDelContenedor' los comandos para cambiar de estado a los contenedores se encuentran en la referencia con titulo commands to containers in linux.
 
 
 # Bibliografía  
 * Instalación y configuración de lxd: https://tutorials.ubuntu.com/tutorial/tutorial-setting-up-lxd-1604#1  
-* Definición de Storage pool: https://www.quora.com/What-is-a-storage-pool  
-* ZFS: https://en.wikipedia.org/wiki/ZFS
-* ZFS: https://www.redeszone.net/2016/10/01/zfs-las-caracteristicas-este-sistema-archivos-avanzado/
-* Ventajas ZFS: https://www.genbeta.com/mac/zfs-un-repaso-al-sistema-de-ficheros
-* ZFS en Ubuntu:https://bayton.org/docs/linux/lxd/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/
-* Caracteristicas de ZFS: https://www.genbeta.com/mac/zfs-un-repaso-al-sistema-de-ficheros
+* Definición de Storage pool: https://www.quora.com/What-is-a-storage-pool    
+* ZFS: https://en.wikipedia.org/wiki/ZFS  
+* ZFS: https://www.redeszone.net/2016/10/01/zfs-las-caracteristicas-este-sistema-archivos-avanzado/  
+* Ventajas ZFS: https://www.genbeta.com/mac/zfs-un-repaso-al-sistema-de-ficheros  
+* ZFS en Ubuntu:https://bayton.org/docs/linux/lxd/lxd-zfs-and-bridged-networking-on-ubuntu-16-04-lts/  
+* Caracteristicas de ZFS: https://www.genbeta.com/mac/zfs-un-repaso-al-sistema-de-ficheros  
 * How to use siege in linux: https://www.linode.com/docs/tools-reference/tools/load-testing-with-siege/
+* Commands to containers in linux : https://linuxcontainers.org/lxd/getting-started-cli/ 
