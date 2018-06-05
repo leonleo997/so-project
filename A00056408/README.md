@@ -242,6 +242,18 @@ Y procedemos a reinicirar el servicio con el comando restart que vemos acontinua
 ```console
 sudo service nginx restart
 ``` 
+
+Para que el balanceador no tenga problemas retornando la pagina html se elimina la pagina por defecto, de tal forma que las solicitudes que lleguen al balanceador sean asignadas a una pagina correcta. Para ello utilizamos el comando que se ve en la imagen 
+
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_014.png)
+
+## Configuración de conexiones remotas:  
+Para permitir hacer la configuración del balanceador de cargas y que pueda recibir conexiones remotas, debemos hacer una modificacion a la iptable. El comando utilizado para permitir esta configuración se evidencia en la siguiente imagen 
+
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_015.png)  
+
+
+
 Luego de que se haya creado el balanceador de carga y de haber realizado las configuraciones mostradas previamente en imagenes realizamos la configuración `Ngix`, previamente habiamos configurado los webservers para los cuales va a funcionar el balanceador. Procedimos a realizar la configuración para recibir conexiones remotas y con el siguiente comando aseguramos de que el servicio del grupo que creamos al inicio quede activo de la forma correcta, el comando utilizado es:  
 
 ```console
@@ -258,7 +270,8 @@ La siguiente imagen muestra el resultado del comando que veremos a continuación
 ```console
 systemctl | grep lxd
 ```
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_016.png)  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selection_016.png) 
+
 
 # Salida del comando lxc list con los contenedores creados y sus direcciones Ip  
 
