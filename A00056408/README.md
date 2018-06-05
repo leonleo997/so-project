@@ -136,7 +136,11 @@ Las siguientes imagenes hacen referencia a las configuraciones del nombre del pu
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_014.png)
 ------------------------------------------------------------------------
 
-*Creación de contenedores*  
+# Creación de contenedores con servicio web
+
+## Instalación y configuración del servicio web  
+
+
 Luego de que el pool ha sido configurado satisfactoriamente saldrá la siguiente imagen  
 
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_015.png)  
@@ -167,21 +171,49 @@ Luego procedemos a entrar a la carpeta bash donde estan los webservers
 lxc exec webserver2 --/bin/bash
 ```
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_024.png)  
-y luego procedemos a configurar el web server con el siguiente comando  
+
+## Página html que despliegue un mensaje que identifique el servicio web correspondiente  
+
+Para realizar el despliegue que pueda identificar el servicio web correspondiente primero nos aseguramos de que se hayan actualizado todos los archivos de nuestra maquina virtual con el siguiente comando:   
+```console
+sudo apt-get update
+```  
+
+Luego procedemos a realizar la instalación de nginx, el cual es el que nos permite realizar el despliegue en una pagina web  
+```console
+sudo apt-get install nginx
+```  
+Luego hacemos la configuración del nginx que acabamos de instalar, con el comando a continuación :  
+```console
+sudo vim /var/www/html/index.nginx-debian.html
+```  
+
+-----Pantallazo pendiente
+...-.-.-.-.-.-.-.-.-.
+
+## Asignar un procesador único para cada servicio web  
+
+Los siguientes comandos son utilizados para asignar un procesador a cada uno de los servicios web. El comando esta asignanadole al servicio web que nombramos webserver y webserver2 un procesador para su ejecución. Los comando utilizados son los siguientes:    
 ```console
 lxc config set webserver limits.cpu 1
 lxc config set webserver2 limits.cpu 1
-```
-
+```  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_025.png)  
-Luego procedemos a crear y e iniciar el balanceador de carga que fue llamado `loadbalancer` con el siguiente comando  
+
+El siguiente comando es utilizado para realizar la validación de que el servicio web se encuentra activo
+
+```console
+systemctl | grep lxd
+```  
+# Creación de contenedor con servicio de balanceo de carga
+
+Procedemos a crear y e iniciar el balanceador de carga que fue llamado `loadbalancer` con el siguiente comando  
 ```console
 lxc launch ubuntu:16.04 loadbalancer
 ```
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_026.png)
 
-La siguiente imagen muestra el correcto funcionamiento del balanceador de carga y los 2 webservers que habíamos creado antes.
-![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_027.png)  
+
 La siguiente imagen muestra el funcioanmiento de el balanceador de carga
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_028.png)  
 
@@ -208,9 +240,18 @@ systemctl list-unit-files --state=enabled | grep lxd
 ```
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_035.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_036.png)  
+
+# Salida del comando lxc list con los contenedores creados y sus direcciones Ip  
+
+La siguiente imagen muestra el correcto funcionamiento del balanceador de carga y los 2 webservers que habíamos creado antes.  
+![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_027.png)  
+
+# Pruebas del funcionamiento del balanceador
+
 Las siguientes imagenes muestra a los contenedores y el balanceador de cargas funcionando en perfecto estado, y el registro del balanceador de cargas en funcionamiento
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_037.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_038.png)  
+
 Las siguientes imagenes muestran el uso del comando ``curl`` a las IPs que hacen referencia a la configuración realizada de los dos webservers y a la IP que hace referencia a el balanceador de carga
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_039.png)  
 ![](https://github.com/leonleo997/so-project/blob/yesid/A00056408/Images/Selección_040.png)  
