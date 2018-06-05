@@ -1,0 +1,60 @@
+➜  ~ lxc config set webserver2 limits.memory 64MB      
+➜  ~ lxc config set webserver limits.memory 64MB 
+config set webserver limits.cpu.allowance 100%
+➜  ~ lxc config set webserver2 limits.cpu.allowance 100%
+➜  ~ ab -n 1000 -c 100 http://10.45.80.209/             
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 10.45.80.209 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        nginx/1.10.3
+Server Hostname:        10.45.80.209
+Server Port:            80
+
+Document Path:          /
+Document Length:        607 bytes
+
+Concurrency Level:      100
+Time taken for tests:   0.426 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      849000 bytes
+HTML transferred:       607000 bytes
+Requests per second:    2345.18 [#/sec] (mean)
+Time per request:       42.641 [ms] (mean)
+Time per request:       0.426 [ms] (mean, across all concurrent requests)
+Transfer rate:          1944.39 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   2.3      0       9
+Processing:     2   39  10.8     41      76
+Waiting:        1   39  10.9     41      76
+Total:          2   40  11.0     42      82
+
+Percentage of the requests served within a certain time (ms)
+  50%     42
+  66%     43
+  75%     44
+  80%     44
+  90%     47
+  95%     56
+  98%     73
+  99%     78
+ 100%     82 (longest request)
+➜  ~ 
+
